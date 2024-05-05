@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Age Input -->
+    <TextView
+        android:id="@+id/textViewAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAge"
+        android:inputType="number"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Height Input -->
+    <TextView
+        android:id="@+id/textViewHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewHeight"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Weight Input -->
+    <TextView
+        android:id="@+id/textViewWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewWeight"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Gender Input -->
+    <TextView
+        android:id="@+id/textViewGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:layout_marginTop="16dp"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextGender"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/textViewGender"-->
+<!--        android:inputType="text"-->
+<!--        android:layout_marginTop="8dp"/>-->
+
+    <Spinner
+        android:id="@+id/spinnerGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/gender_options"/>
+
+    <!-- Activity Level Input -->
+    <TextView
+        android:id="@+id/textViewActLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity Level"
+        android:layout_marginTop="16dp"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextActLevel"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/textViewActLevel"-->
+<!--        android:inputType="text"-->
+<!--        android:layout_marginTop="8dp"/>-->
+
+    <Spinner
+        android:id="@+id/spinnerActivityLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/activity_level_options"/>
+
+    <!-- Calculate Button -->
+    <Button
+        android:id="@+id/buttonCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewBMIResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result BMI"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewCalorieIntake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calorie Intake"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
