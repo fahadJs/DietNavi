@@ -1,6 +1,8 @@
 package com.example.dietapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +25,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SearchActivity extends AppCompatActivity {
     private EditText searchEditText;
     private Button searchButton;
-
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter nutritionAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,12 @@ public class SearchActivity extends AppCompatActivity {
 
         searchEditText = findViewById(R.id.searchEditText);
         searchButton = findViewById(R.id.searchButton);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +87,9 @@ public class SearchActivity extends AppCompatActivity {
                                     }
                                     // Show a toast with the retrieved nutrition information
                                     Toast.makeText(SearchActivity.this, message.toString(), Toast.LENGTH_LONG).show();
+
+                                    nutritionAdapter = new NutritionAdapter(nutritionResponse.getItems()); // Replace MyAdapter with your adapter class name
+                                    recyclerView.setAdapter(nutritionAdapter);
                                 } else {
                                     // If no nutrition information was found, display a message
                                     Toast.makeText(SearchActivity.this, "No nutrition information found", Toast.LENGTH_SHORT).show();
