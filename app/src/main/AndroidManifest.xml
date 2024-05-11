@@ -16,6 +16,23 @@
         android:theme="@style/Theme.DietApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ButtonsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecipeActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".LunchRecipeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DinnerRecipeActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
@@ -29,13 +46,7 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".BmiActivity"
             android:exported="true" />

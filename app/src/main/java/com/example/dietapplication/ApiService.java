@@ -16,5 +16,8 @@ public interface ApiService {
 
     @POST("/user/saveItem") // Replace "saveItem" with the actual endpoint
     Call<ResponseBody> saveItem(@Body RequestBody requestBody);
+
+    @POST("/user/updateInfo")
+    Call<Void> saveUserData(@Body UserData userData);
 }
 

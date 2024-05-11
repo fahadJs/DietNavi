@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editTextUsername, editTextPassword;
-    private Button buttonLogin;
+    private Button buttonLogin, registerButton;
 
     private ApiService apiService;
 
@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide(); //hide the title bar
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -34,6 +35,16 @@ public class LoginActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
+        registerButton = findViewById(R.id.registerButton);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+//                intent.putExtra("key", "value"); // Add any necessary data
+                startActivity(intent);
+            }
+        });
 
         apiService = RetrofitClient.getInstance().getApiService();
 
@@ -58,8 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                             editor.apply();
                             Toast.makeText(LoginActivity.this, "Login successful"+userId, Toast.LENGTH_SHORT).show();
                             // Navigate to home activity or any other screen
-                            Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
-                            intent.putExtra("key", "value"); // Add any necessary data
+                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+//                            intent.putExtra("key", "value"); // Add any necessary data
                             startActivity(intent);
                             finish();
                         } else {

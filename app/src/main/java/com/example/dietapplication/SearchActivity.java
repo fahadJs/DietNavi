@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +36,9 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        getSupportActionBar().hide(); //hide the title bar
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
         searchEditText = findViewById(R.id.searchEditText);
         searchButton = findViewById(R.id.searchButton);
@@ -88,7 +94,8 @@ public class SearchActivity extends AppCompatActivity {
                                     // Show a toast with the retrieved nutrition information
                                     Toast.makeText(SearchActivity.this, message.toString(), Toast.LENGTH_LONG).show();
 
-                                    nutritionAdapter = new NutritionAdapter(nutritionResponse.getItems()); // Replace MyAdapter with your adapter class name
+                                    Intent navigateIntent = new Intent(SearchActivity.this, DashboardActivity.class);
+                                    nutritionAdapter = new NutritionAdapter(SearchActivity.this, nutritionResponse.getItems(), sharedPreferences, navigateIntent); // Replace MyAdapter with your adapter class name
                                     recyclerView.setAdapter(nutritionAdapter);
                                 } else {
                                     // If no nutrition information was found, display a message

@@ -9,6 +9,7 @@ public class User {
     private float weight;
     private String gender;
     private float activityLevel;
+    private float intakeCalories;
 
     // Constructor
     public User(String name, String username, String password) {
@@ -25,6 +26,11 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String name, float intakeCalories) {
+        this.name = name;
+        this.intakeCalories = intakeCalories;
     }
 
     // Getter methods
@@ -59,6 +65,10 @@ public class User {
         return activityLevel;
     }
 
+    public float getIntakeCalories() {
+        return intakeCalories;
+    }
+
     // Setter methods
     public void setName(String name) {
         this.name = name;
@@ -89,5 +99,9 @@ public class User {
 
     public void setActivityLevel(float activityLevel) {
         this.activityLevel = activityLevel;
+    }
+
+    public void setIntakeCalories(float intakeCalories){
+        this.intakeCalories = intakeCalories;
     }
 }
