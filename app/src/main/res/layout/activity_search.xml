@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#ffffff"
     android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/searchEditText"
         android:layout_width="match_parent"
+        android:background="@drawable/edittext_border"
+        android:textColorHint="#999999"
+        android:padding="16dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Enter dish name" />
+        android:textColorHighlight="#0E0E0E"
+        android:hint="Enter dish name"
+        android:textColor="#0E0E0E" />
 
     <Button
         android:id="@+id/searchButton"
@@ -20,6 +26,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:textColor="#fff"
         android:layout_marginEnd="16dp"
         android:text="Search" />
 
@@ -35,6 +43,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
+                android:textColor="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

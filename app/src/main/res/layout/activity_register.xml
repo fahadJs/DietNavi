@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center|center_horizontal|center_vertical"
     android:gravity="center|center_horizontal|center_vertical"
+    android:background="#ffffff"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -41,25 +42,42 @@
                 android:gravity="top"
                 android:text="Your Personal Diet Assistance"
                 android:textAlignment="center"
-                android:textColor="#4CAF50"
+                android:textColor="#0E0E0E"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 tools:ignore="RtlCompat" />
 
             <EditText
                 android:id="@+id/editTextName"
+                android:textColor="#0E0E0E"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name" />
 
             <EditText
                 android:id="@+id/editTextUsername"
+                android:textColor="#0E0E0E"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username" />
 
             <EditText
                 android:id="@+id/editTextPassword"
+                android:textColor="#0E0E0E"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:padding="16dp"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"

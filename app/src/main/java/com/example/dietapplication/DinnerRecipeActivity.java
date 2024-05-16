@@ -24,6 +24,7 @@ public class DinnerRecipeActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecipeAdapter adapter;
+    public String urlNew = constants.getUrl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class DinnerRecipeActivity extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:3030/user/suggest/dinner")
+                .url(urlNew+"user/suggest/dinner")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {

@@ -31,6 +31,7 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionAdapter.Nutr
     private SharedPreferences sharedPreferences;
     private Intent navigateIntent;
     private Context context;
+    public String urlNew = constants.getUrl();
 
     // Provide a reference to the views for each data item
     public static class NutritionViewHolder extends RecyclerView.ViewHolder {
@@ -113,7 +114,7 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionAdapter.Nutr
 
         // Create Retrofit instance
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3030/") // Replace this with your API base URL
+                .baseUrl(urlNew) // Replace this with your API base URL
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -156,8 +157,9 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionAdapter.Nutr
                 if (response.isSuccessful()) {
                     // Handle successful response
                     // Display a message or perform any other actions
-                    navigateIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    navigateIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(navigateIntent);
+                    ((SearchActivity) context).finish();
                 } else {
                     // Handle unsuccessful response
                 }

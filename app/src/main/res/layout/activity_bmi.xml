@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     android:padding="16dp">
 
     <!-- Age Input -->
@@ -13,31 +14,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Age" />
+                android:layout_marginBottom="8dp"
+                android:text="Age"
+                android:textColor="#0E0E0E" />
 
             <EditText
                 android:id="@+id/editTextAge"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:padding="16dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textViewAge"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="#0E0E0E"
+                android:textColorHighlight="#0E0E0E" />
 
             <TextView
                 android:id="@+id/textViewHeight"
+                android:textColor="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="Height" />
 
             <EditText
                 android:id="@+id/editTextHeight"
+                android:textColor="#0E0E0E"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:padding="16dp"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textViewHeight"
@@ -45,6 +61,8 @@
 
             <TextView
                 android:id="@+id/textViewWeight"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -52,6 +70,11 @@
 
             <EditText
                 android:id="@+id/editTextWeight"
+                android:textColor="#0E0E0E"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:padding="16dp"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textViewWeight"
@@ -59,6 +82,8 @@
 
             <TextView
                 android:id="@+id/textViewGender"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -66,13 +91,20 @@
 
             <Spinner
                 android:id="@+id/spinnerGender"
+                android:textColor="#0E0E0E"
+                android:textColorHint="#999999"
+                android:padding="16dp"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:entries="@array/gender_options" />
+                android:entries="@array/gender_options"
+                />
 
             <TextView
                 android:id="@+id/textViewActLevel"
+                android:textColor="#0E0E0E"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -81,8 +113,11 @@
             <Spinner
                 android:id="@+id/spinnerActivityLevel"
                 android:layout_width="match_parent"
+                android:textColorHint="#999999"
+                android:padding="16dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColorHighlight="#0E0E0E"
                 android:entries="@array/activity_level_options" />
 
             <LinearLayout
@@ -111,6 +146,7 @@
 
             <TextView
                 android:id="@+id/textViewBMIResult"
+                android:textColor="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -119,6 +155,7 @@
             <TextView
                 android:id="@+id/textViewCalorieIntake"
                 android:layout_width="match_parent"
+                android:textColor="#0E0E0E"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Calorie Intake: " />

@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#FFFFFF"
-    android:backgroundTint="#FFFFFF"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="#ffffff"
     android:padding="16dp">
 
     <ScrollView
@@ -42,27 +41,36 @@
                 android:layout_height="wrap_content"
                 android:height="40dp"
                 android:gravity="top"
+                android:textColor="#0E0E0E"
                 android:text="Your Personal Diet Assistance"
                 android:textAlignment="center"
-                android:textColor="#4CAF50"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 tools:ignore="RtlCompat" />
 
             <EditText
                 android:id="@+id/editTextUsername"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:textColor="#0E0E0E"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username"
-                android:paddingTop="16dp" />
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"/>
 
             <EditText
                 android:id="@+id/editTextPassword"
+                android:textColor="#0E0E0E"
+                android:background="@drawable/edittext_border"
+                android:textColorHint="#999999"
+                android:textColorHighlight="#0E0E0E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:paddingTop="16dp" />
+                android:padding="16dp" />
 
             <Button
                 android:id="@+id/buttonLogin"
@@ -70,7 +78,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:text="Login"
-                app:cornerRadius="50dp" />
+                android:padding="16dp"
+                android:textColor="#fff"/>
 
             <Button
                 android:id="@+id/registerButton"
