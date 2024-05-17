@@ -154,7 +154,7 @@ public class ProfileActivity extends AppCompatActivity {
                 height.setText("Height: " + firstMeal.getHeight());
                 gender.setText("Gender: " + firstMeal.getGender());
                 bmi.setText("BMI: " + firstMeal.getBmi());
-                calories.setText("Recommended Calories: " + firstMeal.getCalories());
+                calories.setText("Recommended Calories: " + firstMeal.getIntakeCalories());
 
             } else {
                 Toast.makeText(ProfileActivity.this, "No meals found!", Toast.LENGTH_SHORT).show();
