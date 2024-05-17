@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#ffffff"
     android:orientation="vertical">
 
 
@@ -12,6 +13,7 @@
 
         <TextView
             android:id="@+id/name"
+            android:textColor="#0E0E0E"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,6 +31,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:textColor="#0E0E0E"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal">
@@ -38,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:text="Serving Size (gm)"
             android:textSize="20sp" />
 
@@ -46,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:text="TextView"
             android:textAlignment="textEnd"
             android:textSize="20sp" />
@@ -55,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:textColor="#0E0E0E"
         android:orientation="horizontal">
 
         <TextView
@@ -62,6 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:text="Calories (cal)"
             android:textSize="20sp" />
 
@@ -71,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TextView"
+            android:textColor="#0E0E0E"
             android:textAlignment="textEnd"
             android:textSize="20sp" />
     </LinearLayout>
@@ -79,11 +87,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        android:textColor="#0E0E0E"
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:orientation="horizontal">
 
             <TextView
@@ -91,6 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#0E0E0E"
                 android:text="Protein (gm)"
                 android:textSize="20sp" />
 
@@ -99,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#0E0E0E"
                 android:text="TextView"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
@@ -108,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:orientation="horizontal">
 
             <TextView
@@ -115,6 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#0E0E0E"
                 android:text="Carbohydrates (gm)"
                 android:textSize="20sp" />
 
@@ -123,6 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#0E0E0E"
                 android:text="TextView"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
@@ -132,6 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:orientation="horizontal">
 
             <TextView
@@ -140,6 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Sugar (gm)"
+                android:textColor="#0E0E0E"
                 android:textSize="20sp" />
 
             <TextView
@@ -148,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="#0E0E0E"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -156,6 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:orientation="horizontal">
 
             <TextView
@@ -163,6 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#0E0E0E"
                 android:text="fiber (gm)"
                 android:textSize="20sp" />
 
@@ -171,6 +191,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#0E0E0E"
                 android:text="TextView"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
@@ -180,6 +201,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:orientation="horizontal">
 
             <TextView
@@ -188,6 +210,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Fat (gm)"
+                android:textColor="#0E0E0E"
                 android:textSize="20sp" />
 
             <TextView
@@ -196,6 +219,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="#0E0E0E"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -204,6 +228,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#0E0E0E"
             android:orientation="horizontal">
 
             <TextView
@@ -212,6 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Sodium (gm)"
+                android:textColor="#0E0E0E"
                 android:textSize="20sp" />
 
             <TextView
@@ -220,12 +246,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="#0E0E0E"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:textColor="#0E0E0E"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -234,6 +262,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#0E0E0E"
                 android:text="Cholestrol (gm)"
                 android:textSize="20sp" />
 
@@ -243,6 +272,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="#0E0E0E"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
         </LinearLayout>

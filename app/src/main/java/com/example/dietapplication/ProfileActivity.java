@@ -1,19 +1,12 @@
 package com.example.dietapplication;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,106 +21,33 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DashboardActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
-    private RecyclerView dailyMealRecycler;
-    private DashMealAdapter adapter;
+    private TextView name, age, weight, height, gender, bmi, calories;
+    private MealAdapter adapter;
 
-    private LinearLayout btnDiet, btnBmi, btnProfile, btnMeal;
-
-    private TextView userName, recommendCal, dailyCal, options, dailyRecommend, addMeal;
     public String urlNew = constants.getUrl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_profile);
         getSupportActionBar().hide(); //hide the title bar
 
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String userId = sharedPreferences.getString("userId", "");
 
 
-        userName = findViewById(R.id.userName);
-        recommendCal = findViewById(R.id.recommendCal);
-        dailyCal = findViewById(R.id.dailyCal);
-        addMeal = findViewById(R.id.addMeal);
-        btnDiet = findViewById(R.id.btn_suggest);
-        btnBmi = findViewById(R.id.btn_bmi);
-        btnMeal = findViewById(R.id.btn_meal);
-        btnProfile = findViewById(R.id.btn_profile);
+        name = findViewById(R.id.profileName);
+        age = findViewById(R.id.profileAge);
+        weight = findViewById(R.id.profileWeight);
+        height = findViewById(R.id.profileHeight);
+        gender = findViewById(R.id.profileGender);
+        bmi = findViewById(R.id.profileBMI);
+        calories = findViewById(R.id.profileCalories);
 
-        btnDiet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, ButtonsActivity.class);
-//                intent.putExtra("key", "value"); // Add any necessary data
-                startActivity(intent);
-            }
-        });
-
-        btnBmi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, BmiActivity.class);
-//                intent.putExtra("key", "value"); // Add any necessary data
-                startActivity(intent);
-            }
-        });
-
-        btnMeal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, DailyMealActivity.class);
-//                intent.putExtra("key", "value"); // Add any necessary data
-                startActivity(intent);
-            }
-        });
-
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
-//                intent.putExtra("key", "value"); // Add any necessary data
-                startActivity(intent);
-            }
-        });
-
-        addMeal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, SearchActivity.class);
-//                intent.putExtra("key", "value"); // Add any necessary data
-                startActivity(intent);
-            }
-        });
-
-        dailyMealRecycler = findViewById(R.id.dailyMealRecycler);
-        dailyMealRecycler.setLayoutManager(new LinearLayoutManager(this));
-
-//        options = findViewById(R.id.options);
-//        options.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(DashboardActivity.this, BmiActivity.class);
-////                intent.putExtra("key", "value"); // Add any necessary data
-//                startActivity(intent);
-//            }
-//        });
-
-        dailyRecommend = findViewById(R.id.dailyRecommend);
-        dailyRecommend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, ButtonsActivity.class);
-//                intent.putExtra("key", "value"); // Add any necessary data
-                startActivity(intent);
-            }
-        });
-
-
-        new FetchMealsTask().execute(userId);
+        new ProfileActivity.FetchMealsTask().execute(userId);
     }
 
     private class FetchMealsTask extends AsyncTask<String, Void, List<Meal>> {
@@ -199,7 +119,7 @@ public class DashboardActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         String formattedSumCal = String.format("%.1f", finalSumCal);
-                        dailyCal.setText(formattedSumCal);
+//                        dailyCal.setText(formattedSumCal);
                     }
                 });
 
@@ -224,41 +144,21 @@ public class DashboardActivity extends AppCompatActivity {
         protected void onPostExecute(List<Meal> meals) {
             super.onPostExecute(meals);
             if (!meals.isEmpty()) {
-                adapter = new DashMealAdapter(meals, DashboardActivity.this);
-                dailyMealRecycler.setAdapter(adapter);
+                adapter = new MealAdapter(meals, ProfileActivity.this);
+//                dailyMealRecycler.setAdapter(adapter);
 
                 Meal firstMeal = meals.get(0); // Assuming the first meal contains user info
-                userName.setText("Hello, " + firstMeal.getName());
-                recommendCal.setText(String.valueOf(firstMeal.getIntakeCalories()));
+                name.setText("Hi, " + firstMeal.getName());
+                age.setText("Age: " + firstMeal.getAge());
+                weight.setText("Weight: " + firstMeal.getWeight());
+                height.setText("Height: " + firstMeal.getHeight());
+                gender.setText("Gender: " + firstMeal.getGender());
+                bmi.setText("BMI: " + firstMeal.getBmi());
+                calories.setText("Recommended Calories: " + firstMeal.getIntakeCalories());
+
             } else {
-                Toast.makeText(DashboardActivity.this, "No meals found!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, "No meals found!", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
-    @Override
-    public void onBackPressed() {
-        // Build an alert dialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you want to logout?");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Finish the activity and navigate back
-                finish();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Dismiss the dialog
-                dialog.dismiss();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
-
-
 }

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#ffffff"
     android:padding="16dp">
 
     <ImageView
@@ -18,11 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColor="#0E0E0E"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/calories"
+        android:textColor="#0E0E0E"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

@@ -6,10 +6,11 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiService {
     @POST("/user/register")
-    Call<Void> registerUser(@Body User user);
+    Call<Void> registerUser(@Body User user, @Query("date") String date);
 
     @POST("/user/login")
     Call<LoginResponse> loginUser(@Body User user);

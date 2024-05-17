@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -30,6 +31,8 @@ public class BmiActivity extends AppCompatActivity {
     private TextView textViewCalorieIntake;
     private SharedPreferences sharedPreferences;
 
+    String url = constants.getUrl();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +45,13 @@ public class BmiActivity extends AppCompatActivity {
         editTextHeight = findViewById(R.id.editTextHeight);
         editTextWeight = findViewById(R.id.editTextWeight);
         spinnerGender = findViewById(R.id.spinnerGender);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_options, R.layout.spinner_item);
+        spinnerGender.setAdapter(adapter);
+
         spinnerActivityLevel = findViewById(R.id.spinnerActivityLevel);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.activity_level_options, R.layout.spinner_item);
+        spinnerActivityLevel.setAdapter(adapter2);
+
         buttonCalculate = findViewById(R.id.buttonCalculate);
         buttonSave = findViewById(R.id.buttonSave);
         textViewBMIResult = findViewById(R.id.textViewBMIResult);
@@ -105,7 +114,7 @@ public class BmiActivity extends AppCompatActivity {
 
         // Call Retrofit to save user data
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3030/")
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

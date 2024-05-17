@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,8 +53,9 @@ public class RegisterActivity extends AppCompatActivity {
 //                }
 
                 User user = new User(name, username, password);
+                String currentDate = Utils.getCurrentDate();
 
-                Call<Void> call = apiService.registerUser(user);
+                Call<Void> call = apiService.registerUser(user, currentDate);
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
@@ -72,6 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         Toast.makeText(RegisterActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                        Log.e("API Request", "Failed", t);
                     }
                 });
             }
