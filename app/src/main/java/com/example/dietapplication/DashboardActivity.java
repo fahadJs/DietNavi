@@ -36,7 +36,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private LinearLayout btnDiet, btnBmi, btnProfile, btnMeal;
 
-    private TextView userName, recommendCal, dailyCal, options, dailyRecommend, addMeal;
+    private TextView userName, recommendCal, dailyCal, options, dailyRecommend, addMeal, remainCal;
     public String urlNew = constants.getUrl();
 
     @Override
@@ -57,6 +57,7 @@ public class DashboardActivity extends AppCompatActivity {
         btnBmi = findViewById(R.id.btn_bmi);
         btnMeal = findViewById(R.id.btn_meal);
         btnProfile = findViewById(R.id.btn_profile);
+        remainCal = findViewById(R.id.remainingCal);
 
         btnDiet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +140,7 @@ public class DashboardActivity extends AppCompatActivity {
             HttpURLConnection connection = null;
             BufferedReader reader = null;
             String currentDate = Utils.getCurrentDate();
+            Float recommendCalValue = null;
 
             try {
                 URL url = new URL(urlNew +"user/dailyMeal?id=" + userId+"&date="+currentDate);
@@ -186,6 +188,9 @@ public class DashboardActivity extends AppCompatActivity {
                     // Create a Meal object and add it to the list
                     Meal meal = new Meal(id, userIdN, date, name_item, serving, calories, protein, carbs, sugar, fiber, fat, sodium, cholesterol, name, username, age, height, weight, gender, fitness_level, bmi, intakeCalories);
                     meals.add(meal);
+                    if (i == 0) { // assuming the first meal contains user info
+                        recommendCalValue = intakeCalories;
+                    }
 
                     sumCal += calories;
 
@@ -195,11 +200,18 @@ public class DashboardActivity extends AppCompatActivity {
 
                 }
                 final Double finalSumCal = sumCal;
+                final Float finalRecommendCal = recommendCalValue;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         String formattedSumCal = String.format("%.1f", finalSumCal);
                         dailyCal.setText(formattedSumCal);
+
+                        if (finalRecommendCal != null) {
+                            double remainingCalories = finalRecommendCal - finalSumCal;
+                            String formattedRemainingCal = String.format("%.1f", remainingCalories);
+                            remainCal.setText(formattedRemainingCal);
+                        }
                     }
                 });
 
@@ -230,6 +242,13 @@ public class DashboardActivity extends AppCompatActivity {
                 Meal firstMeal = meals.get(0); // Assuming the first meal contains user info
                 userName.setText("Hello, " + firstMeal.getName());
                 recommendCal.setText(String.valueOf(firstMeal.getIntakeCalories()));
+
+                // Calculate and display remaining calories
+                double recommendCalories = firstMeal.getIntakeCalories();
+                double consumedCalories = meals.stream().mapToDouble(Meal::getCalories).sum();
+                double remainingCalories = recommendCalories - consumedCalories;
+                String formattedRemainingCal = String.format("%.1f", remainingCalories);
+                remainCal.setText(formattedRemainingCal);
             } else {
                 Toast.makeText(DashboardActivity.this, "No meals found!", Toast.LENGTH_SHORT).show();
             }
